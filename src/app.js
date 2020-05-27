@@ -18,9 +18,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Routing
+const bookRouter = require('./../routes/book.router');
+
 app.get('/', (req, res) => {
   res.json({ ok: true });
 });
+app.use('/book', bookRouter);
 
 // Launch Server
 const PORT = process.env.PORT || 3000;
